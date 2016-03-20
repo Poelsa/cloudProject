@@ -6,7 +6,7 @@ from ctypes import POINTER, c_ubyte, c_void_p, c_ulong, cast
 from pulseaudio.lib_pulseaudio import *
 
 # edit to match your sink
-SINK_NAME = 'alsa_output.pci-0000_00_1b.0.analog-stereo'
+SINK_NAME = 'alsa_output.0.analog-stereo'
 METER_RATE = 344
 MAX_SAMPLE_VALUE = 127
 DISPLAY_SCALE = 2
