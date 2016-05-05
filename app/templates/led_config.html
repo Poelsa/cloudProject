@@ -28,10 +28,10 @@
 <script>
   function submitForm() {
     $.post('/led_config', {
-      index: $('#led_index').text()
-      red: $('#color_red').text()
-      green: $('#color_green').text()
-      blue: $('#color_blue').text()
+      index: $('#led_index').val(),
+      red: $('#color_red').val(),
+      green: $('#color_green').val(),
+      blue: $('#color_blue').val()
     }).done(function(retVal) {
       $('#div1').text(retVal['index'])
     }).fail(function() {
