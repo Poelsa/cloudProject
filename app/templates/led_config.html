@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>LED!</h1>
+<form role="form" action="javascript:submitForm()">
+  <div class="form-group">
+    <label for="led_index">LED number</label>
+    <input type="number" id="led_index" min="1" max="30">
+  </div>
+  <div class="form-group">
+    <label for="color_red">Red</label>
+    <input type="number" id="color_red" min="0" max="255">
+  </div>
+  <div class="form-group">
+    <label for="color_green">Green</label>
+    <input type="number" id="color_green" min="0" max="255">
+  </div>
+  <div class="form-group">
+    <label for="color_blue">Blue</label>
+    <input type="number" id="color_blue" min="0" max="255">
+  </div>
+  <button type="submit" class="btn btn-default">Send</button>
+</form>
+
+<div id="div1">
+
+</div>
+
+<script>
+  function submitForm() {
+    $.post('/led_config', {
+      index: $('#led_index').text()
+      red: $('#color_red').text()
+      green: $('#color_green').text()
+      blue: $('#color_blue').text()
+    }).done(function(retVal) {
+      $('#div1').text(retVal['index'])
+    }).fail(function() {
+      $('#div1').text("failed")
+    });
+  }
+</script>
+{% endblock %}
